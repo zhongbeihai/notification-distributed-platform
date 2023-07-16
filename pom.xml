@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>ndp-common</module>
+        <module>ndp-support</module>
     </modules>
 
     <properties>
@@ -21,6 +22,8 @@
         <scala.binary.version>2.11</scala.binary.version>
         <log4j.version>2.17.1</log4j.version>
         <weixin-java>4.3.0</weixin-java>
+        <maven.compiler.source>${target.java.version}</maven.compiler.source>
+        <maven.compiler.target>${target.java.version}</maven.compiler.target>
     </properties>
 
     <parent>
@@ -30,6 +33,7 @@
         <relativePath/>
     </parent>
 
+    <dependencyManagement>
     <dependencies>
         <!--mysql驱动包-->
         <dependency>
@@ -212,6 +216,6 @@
             <version>1.0.4</version>
         </dependency>
     </dependencies>
-
+    </dependencyManagement>
 
 </project>

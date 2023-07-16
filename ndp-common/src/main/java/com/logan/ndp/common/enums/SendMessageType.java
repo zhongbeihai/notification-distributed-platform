@@ -106,7 +106,7 @@ public enum SendMessageType {
     /**
      * 通过code获取钉钉机器人的Type值
      *
-     * @param code
+     * @Param code
      */
     public static String getDingDingRobotTypeByCode(String code) {
         for (SendMessageType value : SendMessageType.values()) {
@@ -120,8 +120,7 @@ public enum SendMessageType {
     /**
      * 通过code获取钉钉工作通知的Type值
      *
-     * @param code
-     * @return
+     * @Param code
      */
     public static String getDingDingWorkTypeByCode(String code) {
         for (SendMessageType value : SendMessageType.values()) {
@@ -135,8 +134,6 @@ public enum SendMessageType {
     /**
      * 通过code获取企业微信机器人的Type值
      *
-     * @param code
-     * @return
      */
     public static String getEnterpriseWeChatRobotTypeByCode(String code) {
         for (SendMessageType value : SendMessageType.values()) {
@@ -150,8 +147,7 @@ public enum SendMessageType {
     /**
      * 通过code获取企业微信机器人的Type值
      *
-     * @param code
-     * @return
+     * @Param code
      */
     public static String geFeiShuRobotTypeByCode(String code) {
         for (SendMessageType value : SendMessageType.values()) {
