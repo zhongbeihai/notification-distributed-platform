@@ -12,7 +12,7 @@ import javax.persistence.Id;
 
 /**
  * @Description 渠道账号实体。例如腾讯短信平台是一个实例
- * @Author Logan 黄嘉林
+ * @Author Logan
  * @Date 2023/7/15 18:51
  **/
 

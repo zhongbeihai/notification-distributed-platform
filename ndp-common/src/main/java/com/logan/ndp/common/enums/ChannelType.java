@@ -13,7 +13,7 @@ import java.util.Objects;
 @Getter
 @ToString
 @AllArgsConstructor
-public enum ChannelType {
+public enum ChannelType implements PowerfulEnum {
 
     //IM(10, "IM(站内信)", ImContentModel.class, "im"),
 
@@ -65,7 +65,7 @@ public enum ChannelType {
      * @Param code
      */
     public static Class<? extends ContentModel> getChanelModelClassByCode(Integer code) {
-        return Arrays.stream(values()).filter(channelType -> Objects.equals(code, channelType.getCode()))
+        return Arrays.stream(ChannelType.values()).filter(channelType -> Objects.equals(code, channelType.getCode()))
                 .map(ChannelType::getContentModelClass)
                 .findFirst().orElse(null);
     }

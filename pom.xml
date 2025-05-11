@@ -11,6 +11,9 @@
     <modules>
         <module>ndp-common</module>
         <module>ndp-support</module>
+        <module>ndp-serviceapi</module>
+        <module>ndp-serviceapi-impl</module>
+        <module>ndp-handler</module>
     </modules>
 
     <properties>

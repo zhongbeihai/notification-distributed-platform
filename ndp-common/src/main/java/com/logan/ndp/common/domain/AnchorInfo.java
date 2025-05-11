@@ -19,6 +19,14 @@ import java.util.Set;
 public class AnchorInfo {
 
     /**
+     * 消息唯一Id(数据追踪使用)
+     * 生成逻辑参考 TaskInfoUtils
+     */
+    private long messageId;
+
+    private long bizId;
+
+    /**
      * 发送用户
      */
     private Set<String> ids;

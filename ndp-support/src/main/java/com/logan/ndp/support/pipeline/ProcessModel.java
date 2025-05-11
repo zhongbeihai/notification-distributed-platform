@@ -5,5 +5,5 @@ package com.logan.ndp.support.pipeline;
  * @Author Logan 黄嘉林
  * @Date 2023/7/16 12:53
  **/
-public class ProcessModel {
+public interface ProcessModel {
 }

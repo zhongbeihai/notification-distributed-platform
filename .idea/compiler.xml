@@ -8,6 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ndp-support" />
+        <module name="ndp-serviceapi" />
+        <module name="ndp-serviceapi-impl" />
+        <module name="ndp-handler" />
         <module name="ndp-common" />
       </profile>
     </annotationProcessing>
@@ -18,9 +21,12 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ndp-common" options="-parameters" />
+      <module name="ndp-handler" options="-parameters" />
       <module name="ndp-service-api" options="-parameters" />
+      <module name="ndp-serviceapi" options="-parameters" />
+      <module name="ndp-serviceapi-impl" options="-parameters" />
       <module name="ndp-support" options="-parameters" />
-      <module name="notice-distributor-platform" options="-parameters" />
+      <module name="notice-distributor-platform" options="" />
     </option>
   </component>
 </project>

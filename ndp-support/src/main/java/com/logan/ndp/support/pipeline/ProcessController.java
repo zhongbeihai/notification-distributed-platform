@@ -11,11 +11,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+
 /**
- * @Description  controller -> PrecessTemplate -> BusinessProcess -> BusinessProcess
- *                             PrecessTemplate -> BusinessProcess -> BusinessProcess
- *                             PrecessTemplate -> BusinessProcess -> BusinessProcess
- * ProcessTemplate是一整个责任链，BusinessProcess是责任链的一个步骤
+ * @Description ProcessTemplate是一整个责任链。BusinessProcess是责任链的一个步骤，并且绑定一个ProcessContext
  * @Author Logan 黄嘉林
  * @Date 2023/7/16 12:55
  **/
@@ -36,9 +34,7 @@ public class ProcessController {
      */
     public ProcessContext process(ProcessContext context) {
 
-        /**
-         * 前置检查
-         */
+        // 前置检查
         try {
             preCheck(context);
         } catch (ProcessException e) {
@@ -55,6 +51,8 @@ public class ProcessController {
                 break;
             }
         }
+
+        // 返回传进来的上下文
         return context;
     }
 

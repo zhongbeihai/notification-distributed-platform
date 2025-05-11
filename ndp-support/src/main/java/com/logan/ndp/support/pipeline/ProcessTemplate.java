@@ -1,5 +1,7 @@
 package com.logan.ndp.support.pipeline;
 
+import lombok.Getter;
+import lombok.Setter;
 import java.util.List;
 
 /**
@@ -7,14 +9,9 @@ import java.util.List;
  * @Author Logan 黄嘉林
  * @Date 2023/7/16 12:51
  **/
+
+@Getter
+@Setter
 public class ProcessTemplate {
     private List<BusinessProcess> processList;
-
-    public List<BusinessProcess> getProcessList() {
-        return processList;
-    }
-
-    public void setProcessList(List<BusinessProcess> processList) {
-        this.processList = processList;
-    }
 }

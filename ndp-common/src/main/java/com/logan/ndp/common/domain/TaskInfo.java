@@ -1,11 +1,13 @@
 package com.logan.ndp.common.domain;
 
+import com.logan.ndp.common.dto.model.ContentModel;
+import com.logan.ndp.support.pipeline.ProcessModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.swing.text.html.parser.ContentModel;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -18,12 +20,12 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TaskInfo {
+public class TaskInfo implements Serializable, ProcessModel {
 
     /**
      * 消息模板Id
      */
-    private Long messageTemplateId;
+    private Long messageId;
 
     /**
      * 业务Id(数据追踪使用)

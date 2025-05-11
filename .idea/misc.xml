@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/ndp-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ndp-serviceapi/ndp-serviceapi-impl/pom.xml" />
       </set>
     </option>
   </component>

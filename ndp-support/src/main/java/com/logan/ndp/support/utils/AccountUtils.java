@@ -1,41 +1,41 @@
-//package com.logan.ndp.support.utils;
-//
-//import cn.binarywang.wx.miniapp.api.WxMaService;
-//import cn.binarywang.wx.miniapp.api.impl.WxMaServiceImpl;
-//import cn.binarywang.wx.miniapp.config.impl.WxMaRedisBetterConfigImpl;
-//import com.alibaba.fastjson.JSON;
-//import com.google.common.base.Throwables;
-//import com.logan.ndp.support.dao.ChannelAccountDao;
-//import com.logan.ndp.support.domain.ChannelAccount;
-//import lombok.extern.slf4j.Slf4j;
-//import me.chanjar.weixin.common.redis.RedisTemplateWxRedisOps;
-//import me.chanjar.weixin.mp.api.WxMpService;
-//import me.chanjar.weixin.mp.api.impl.WxMpServiceImpl;
-//import me.chanjar.weixin.mp.config.impl.WxMpRedisConfigImpl;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.data.redis.core.StringRedisTemplate;
-//
-//import java.util.List;
-//import java.util.Optional;
-//import java.util.concurrent.ConcurrentHashMap;
-//import java.util.concurrent.ConcurrentMap;
-//
-///**
-// * 获取账号信息工具类
-// *
-// * @author 3y
-// */
-//@Slf4j
-//@Configuration
-//public class AccountUtils {
-//
-//    @Autowired
-//    private ChannelAccountDao channelAccountDao;
-//    @Autowired
-//    private StringRedisTemplate redisTemplate;
-//
+package com.logan.ndp.support.utils;
+
+import cn.binarywang.wx.miniapp.api.WxMaService;
+import cn.binarywang.wx.miniapp.api.impl.WxMaServiceImpl;
+import cn.binarywang.wx.miniapp.config.impl.WxMaRedisBetterConfigImpl;
+import com.alibaba.fastjson.JSON;
+import com.google.common.base.Throwables;
+import com.logan.ndp.support.dao.ChannelAccountDao;
+import com.logan.ndp.support.domain.ChannelAccount;
+import lombok.extern.slf4j.Slf4j;
+import me.chanjar.weixin.common.redis.RedisTemplateWxRedisOps;
+import me.chanjar.weixin.mp.api.WxMpService;
+import me.chanjar.weixin.mp.api.impl.WxMpServiceImpl;
+import me.chanjar.weixin.mp.config.impl.WxMpRedisConfigImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.StringRedisTemplate;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+
+/**
+ * 获取账号信息工具类
+ *
+ * @author 3y
+ */
+@Slf4j
+@Configuration
+public class AccountUtils {
+
+    @Autowired
+    private ChannelAccountDao channelAccountDao;
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+
 //    /**
 //     * 消息的小程序/微信服务号账号
 //     */
@@ -47,35 +47,36 @@
 //        return new RedisTemplateWxRedisOps(redisTemplate);
 //    }
 //
-//    /**
-//     * 微信小程序：返回 WxMaService
-//     * 微信服务号：返回 WxMpService
-//     * 其他渠道：返回XXXAccount账号对象
-//     *
-//     * @param sendAccountId
-//     * @param clazz
-//     * @param <T>
-//     * @return
-//     */
-//    @SuppressWarnings("unchecked")
-//    public <T> T getAccountById(Integer sendAccountId, Class<T> clazz) {
-//        try {
-//            Optional<ChannelAccount> optionalChannelAccount = channelAccountDao.findById(Long.valueOf(sendAccountId));
-//            if (optionalChannelAccount.isPresent()) {
-//                ChannelAccount channelAccount = optionalChannelAccount.get();
+    /**
+     * 微信小程序：返回 WxMaService
+     * 微信服务号：返回 WxMpService
+     * 其他渠道：返回XXXAccount账号对象
+     *
+     * @param sendAccountId
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T getAccountById(Integer sendAccountId, Class<T> clazz) {
+        try {
+            Optional<ChannelAccount> optionalChannelAccount = channelAccountDao.findById(Long.valueOf(sendAccountId));
+            ChannelAccount channelAccount = new ChannelAccount();
+            if (optionalChannelAccount.isPresent()) {
+                channelAccount = optionalChannelAccount.get();
 //                if (clazz.equals(WxMaService.class)) {
 //                    return (T) ConcurrentHashMapUtils.computeIfAbsent(miniProgramServiceMap, channelAccount, account -> initMiniProgramService(JSON.parseObject(account.getAccountConfig(), WeChatMiniProgramAccount.class)));
 //                } else if (clazz.equals(WxMpService.class)) {
 //                    return (T) ConcurrentHashMapUtils.computeIfAbsent(officialAccountServiceMap, channelAccount, account -> initOfficialAccountService(JSON.parseObject(account.getAccountConfig(), WeChatOfficialAccount.class)));
-//                } else {
-//                    return JSON.parseObject(channelAccount.getAccountConfig(), clazz);
-//                }
-//            }
-//        } catch (Exception e) {
-//            log.error("AccountUtils#getAccount fail! e:{}", Throwables.getStackTraceAsString(e));
-//        }
-//        return null;
-//    }
+            } else {
+                return JSON.parseObject(channelAccount.getAccountConfig(), clazz);
+            }
+
+        } catch (Exception e) {
+            log.error("AccountUtils#getAccount fail! e:{}", Throwables.getStackTraceAsString(e));
+        }
+        return null;
+    }
 //
 //    /**
 //     * 通过脚本名 匹配到对应的短信账号
@@ -136,5 +137,5 @@
 //        return wxMaService;
 //    }
 //
-//
-//}
+
+}
